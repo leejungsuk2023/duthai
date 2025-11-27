@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="facebook-domain-verification" content="nhtlwpx5azsslibe836spfqtbzqad8" />
-    <title>DU Clinic - ศัลยกรรมสไตล์เกาหลี สำหรับคนไทย</title>
+    <title>DU Clinic VIP Tour - ศัลยกรรมพรีเมียม + ทัวร์ VIP ครบวงจร</title>
 
-    <!-- Google Fonts - Prompt for Thai -->
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Noto Sans Thai -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -19,7 +19,7 @@
 
     fbq('init','3372319072916447');
     fbq('track','PageView');
-    console.log('📱 Facebook Pixel 초기화 완료 - Pixel ID: 3372319072916447');
+    console.log('Facebook Pixel initialized - Pixel ID: 3372319072916447');
     </script>
     <noscript>
       <img height="1" width="1" style="display:none"
@@ -34,19 +34,30 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4bc;
+            --gold-dark: #b8960c;
+            --navy: #1a1a2e;
+            --navy-light: #16213e;
+            --navy-dark: #0f0f1a;
+            --white: #ffffff;
+            --gray-light: #f8f9fa;
+        }
+
         body {
-            font-family: 'Prompt', sans-serif;
+            font-family: 'Noto Sans Thai', sans-serif;
             line-height: 1.7;
             color: #2d2d2d;
-            background: #f8f9fa;
+            background: var(--gray-light);
             padding-bottom: 100px;
         }
 
         /* ========== HERO SECTION ========== */
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
             color: white;
-            padding: 60px 20px 80px;
+            padding: 50px 20px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -59,8 +70,26 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
-            background-size: 50px 50px;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(212,175,55,0.1)"/></svg>');
+            background-size: 30px 30px;
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
         }
 
         .hero-content {
@@ -70,25 +99,43 @@
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 1.8rem;
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
             font-weight: 600;
-            line-height: 1.4;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+            display: block;
         }
 
         .hero p {
             font-size: 1.05rem;
-            color: rgba(255,255,255,0.85);
-            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
             max-width: 450px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
-        /* ========== HEADER IMAGE SECTION ========== */
+        /* ========== HEADER VIDEO SECTION ========== */
         .header-image-section {
-            background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+            background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
             padding: 0 20px 40px;
         }
 
@@ -101,26 +148,209 @@
             width: 100%;
             aspect-ratio: 9/16;
             border-radius: 15px;
-            border: none;
+            border: 3px solid var(--gold);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        /* ========== VIP TOUR SECTION (NEW) ========== */
+        .vip-tour-section {
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .vip-tour-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 .gold {
+            color: var(--gold);
+        }
+
+        .section-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .tour-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .tour-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .tour-card.selected {
+            border-color: var(--gold);
+        }
+
+        .tour-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+            border-radius: 0 20px 0 100px;
+        }
+
+        .card-checkbox {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 28px;
+            height: 28px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .tour-card.selected .card-checkbox {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .card-checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tour-card.selected .card-checkbox::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            padding-right: 40px;
+        }
+
+        .card-price {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .card-free-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .card-description-th {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            margin-top: 5px;
+        }
+
+        .card-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .benefit-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-dark);
+            padding: 5px 12px;
             border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         /* ========== TRUST SECTION ========== */
         .trust-section {
             background: white;
             padding: 50px 20px;
-            margin-top: -30px;
             border-radius: 30px 30px 0 0;
             position: relative;
             z-index: 2;
+            margin-top: -20px;
         }
 
         .trust-title {
             text-align: center;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #1a1a2e;
+            color: var(--navy);
             margin-bottom: 35px;
         }
 
@@ -139,10 +369,12 @@
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .trust-item:hover {
             transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
         .trust-icon {
@@ -153,7 +385,7 @@
         .trust-item h3 {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #1a1a2e;
+            color: var(--navy);
             margin-bottom: 8px;
         }
 
@@ -165,7 +397,7 @@
 
         /* ========== REVIEW SECTION ========== */
         .review-section {
-            background: #f8f9fa;
+            background: var(--gray-light);
             padding: 50px 20px;
         }
 
@@ -173,7 +405,7 @@
             text-align: center;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #1a1a2e;
+            color: var(--navy);
             margin-bottom: 10px;
         }
 
@@ -184,96 +416,62 @@
             margin-bottom: 30px;
         }
 
-        .review-slider {
-            max-width: 600px;
-            margin: 0 auto;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .review-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .review-track {
-            display: flex;
-            gap: 15px;
-            padding: 10px 5px;
-        }
-
-        .review-card {
-            flex: 0 0 280px;
-            scroll-snap-align: center;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
         .review-images {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
+            gap: 4px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .review-images img {
             width: 100%;
-            height: 120px;
+            height: 150px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .review-images img:hover {
+            transform: scale(1.05);
         }
 
         .review-labels {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 20px;
-            padding: 0 10px;
+            margin-top: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .review-label-group {
             text-align: center;
-        }
-
-        .review-label-group .review-tag {
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .review-label-group .review-text {
-            font-size: 14px;
-            color: #666;
-            margin: 0;
-        }
-
-        .review-content {
+            background: white;
             padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .review-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #d4af37, #f4d03f);
-            color: #1a1a2e;
-            padding: 5px 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         .review-text {
             font-size: 0.9rem;
-            color: #444;
+            color: #555;
             line-height: 1.6;
-        }
-
-        .review-author {
-            margin-top: 12px;
-            font-size: 0.8rem;
-            color: #888;
         }
 
         /* ========== PROMO SECTION ========== */
@@ -286,44 +484,59 @@
         .promo-box {
             max-width: 500px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #fff9e6, #fff5d6);
-            border: 2px solid #d4af37;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            border: 2px solid var(--gold);
             border-radius: 20px;
             padding: 30px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
         }
 
         .promo-badge {
             display: inline-block;
-            background: #d4af37;
-            color: white;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
             padding: 8px 20px;
             border-radius: 25px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 15px;
+            position: relative;
         }
 
         .promo-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #1a1a2e;
+            color: white;
             margin-bottom: 10px;
+            position: relative;
         }
 
         .promo-list {
             text-align: left;
-            max-width: 300px;
+            max-width: 320px;
             margin: 20px auto;
+            position: relative;
         }
 
         .promo-list li {
             list-style: none;
-            padding: 8px 0;
+            padding: 10px 0;
             font-size: 0.95rem;
-            color: #333;
+            color: rgba(255,255,255,0.9);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .promo-list li::before {
@@ -331,13 +544,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 22px;
-            height: 22px;
-            background: #28a745;
-            color: white;
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            color: var(--navy);
             border-radius: 50%;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* ========== STICKY CTA ========== */
@@ -346,10 +560,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #00c851, #00a844);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             padding: 15px 20px;
             z-index: 1000;
-            box-shadow: 0 -5px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 -5px 30px rgba(212, 175, 55, 0.4);
         }
 
         .sticky-cta-content {
@@ -362,13 +576,13 @@
         }
 
         .sticky-cta-text {
-            color: white;
+            color: var(--navy);
             flex: 1;
         }
 
         .sticky-cta-text .highlight {
             font-size: 0.75rem;
-            background: rgba(255,255,255,0.2);
+            background: rgba(26, 26, 46, 0.2);
             padding: 3px 10px;
             border-radius: 12px;
             display: inline-block;
@@ -376,7 +590,7 @@
         }
 
         .sticky-cta-text .main-text {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
@@ -384,31 +598,40 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: white;
-            color: #00a844;
+            background: var(--navy);
+            color: white;
             padding: 14px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
             white-space: nowrap;
         }
 
         .sticky-cta-button:hover {
             transform: scale(1.05);
+            background: var(--navy-dark);
         }
 
         .sticky-cta-button svg {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
         }
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 480px) {
+            .hero {
+                padding: 40px 15px 50px;
+            }
+
             .hero h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
             }
 
             .trust-grid {
@@ -433,6 +656,23 @@
                 flex: 1;
             }
 
+            .tour-card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.05rem;
+            }
+
+            .review-images img {
+                height: 100px;
+            }
+
+            .review-labels {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
             .sticky-cta-content {
                 flex-direction: column;
                 text-align: center;
@@ -450,8 +690,13 @@
     <!-- ========== HERO SECTION ========== -->
     <section class="hero">
         <div class="hero-content">
-            <h1>ศัลยกรรมสไตล์เกาหลี<br>ที่เข้าใจโครงหน้าคนไทยที่สุด</h1>
-            <p>คุณหมอคิมดูแลเอง 1:1 ทุกเคส<br>ไม่ใช่โรงงานศัลยกรรม</p>
+            <span class="hero-badge">VIP Medical Tour</span>
+            <h1>
+                บินมาสวยที่เกาหลี<br>
+                <span class="highlight">จ่ายเท่าคนท้องถิ่น 100%</span>
+                (No Tourist Price)
+            </h1>
+            <p>ศัลยกรรมพรีเมียม + บริการทัวร์ VIP ครบวงจร<br>ดูแลโดยทีมงานคนไทยตลอดทริป</p>
         </div>
     </section>
 
@@ -461,6 +706,48 @@
             <video class="header-video" autoplay muted loop playsinline>
                 <source src="/header-video.mp4" type="video/mp4">
             </video>
+        </div>
+    </section>
+
+    <!-- ========== VIP TOUR SECTION (NEW) ========== -->
+    <section class="vip-tour-section">
+        <div class="section-header">
+            <h2>เลือก <span class="gold">VIP Package</span> ที่ใช่สำหรับคุณ</h2>
+            <p>บริการพิเศษเฉพาะลูกค้า DU Clinic</p>
+        </div>
+
+        <div class="tour-cards">
+            <!-- Card 1: VIP Pickup & Food Tour -->
+            <div class="tour-card" id="card1" onclick="selectCard('card1')">
+                <div class="card-checkbox"></div>
+                <div class="card-icon">🚐</div>
+                <h3 class="card-title">VIP Private Tour (รถรับส่ง + ทัวร์กิน)</h3>
+                <span class="card-price">200,000 KRW / 1 Day</span>
+                <p class="card-description">공항/호텔 픽업 샌딩 + 한국 찐맛집 투어 가이드 포함</p>
+                <p class="card-description-th">บริการรถลีมูซีนส่วนตัว + พาไปร้านอาหารเด็ดที่คนเกาหลีแนะนำ</p>
+                <div class="card-benefits">
+                    <span class="benefit-tag">สนามบิน</span>
+                    <span class="benefit-tag">โรงแรม</span>
+                    <span class="benefit-tag">ร้านอาหาร</span>
+                    <span class="benefit-tag">ล่ามไทย</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Casino & Beauty -->
+            <div class="tour-card" id="card2" onclick="selectCard('card2')">
+                <div class="card-checkbox"></div>
+                <div class="card-icon">🎰</div>
+                <h3 class="card-title">Casino Tour & Skin Care (คาสิโน + ผิวสวย)</h3>
+                <span class="card-free-badge">ฟรี! Skin Care เมื่อจองทัวร์</span>
+                <p class="card-description">럭셔리 카지노 체험과 피부 관리를 동시에</p>
+                <p class="card-description-th">สัมผัสความหรูหราพร้อมดูแลผิวพรรณ ฟรี! โปรแกรมดูแลผิวหน้า เมื่อจองทัวร์คาสิโน</p>
+                <div class="card-benefits">
+                    <span class="benefit-tag">คาสิโน VIP</span>
+                    <span class="benefit-tag">Facial Free</span>
+                    <span class="benefit-tag">รถรับส่ง</span>
+                    <span class="benefit-tag">ล่ามไทย</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -501,10 +788,10 @@
         <p class="review-subtitle">ผลลัพธ์จริงจากลูกค้าคนไทย</p>
 
         <div class="review-images">
-            <img src="/review-1.png" alt="Image 1" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23e0e0e0%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2212%22>1</text></svg>'">
-            <img src="/review-2.png" alt="Image 2" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2212%22>2</text></svg>'">
-            <img src="/review-3.png" alt="Image 3" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23e0e0e0%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2212%22>3</text></svg>'">
-            <img src="/review-4.png" alt="Image 4" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2212%22>4</text></svg>'">
+            <img src="/review-1.png" alt="Review 1" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23e0e0e0%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2212%22>1</text></svg>'">
+            <img src="/review-2.png" alt="Review 2" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2212%22>2</text></svg>'">
+            <img src="/review-3.png" alt="Review 3" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23e0e0e0%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2212%22>3</text></svg>'">
+            <img src="/review-4.png" alt="Review 4" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 120%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22120%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2212%22>4</text></svg>'">
         </div>
 
         <div class="review-labels">
@@ -522,12 +809,13 @@
     <!-- ========== PROMO SECTION ========== -->
     <section class="promo-section">
         <div class="promo-box">
-            <span class="promo-badge">🎁 โปรโมชั่นพิเศษ</span>
-            <h3 class="promo-title">แอดไลน์วันนี้ รับฟรี!</h3>
+            <span class="promo-badge">🎁 VIP EXCLUSIVE</span>
+            <h3 class="promo-title">แอดไลน์วันนี้ รับสิทธิพิเศษ!</h3>
             <ul class="promo-list">
                 <li>ค่าปรึกษาแพทย์ มูลค่า 100,000 วอน</li>
                 <li>ภาพจำลองใบหน้าหลังผ่าตัด</li>
-                <li>ใบเสนอราคาส่วนตัว</li>
+                <li>ใบเสนอราคาส่วนตัว (ไม่บวกราคานักท่องเที่ยว)</li>
+                <li>ส่วนลด VIP Tour Package</li>
             </ul>
         </div>
     </section>
@@ -536,8 +824,8 @@
     <div class="sticky-cta">
         <div class="sticky-cta-content">
             <div class="sticky-cta-text">
-                <span class="highlight">🔥 จำกัด 5 ท่าน/วัน</span>
-                <div class="main-text">ส่งรูปให้คุณหมอประเมินฟรี!</div>
+                <span class="highlight">🔥 VIP Limited</span>
+                <div class="main-text">แอดไลน์เพื่อจองคิวและรับสิทธิ์ VIP</div>
             </div>
             <a href="https://line.me/R/ti/p/@duprs.th" class="sticky-cta-button" id="lineButton">
                 <svg viewBox="0 0 24 24" fill="#00B900">
@@ -549,13 +837,21 @@
     </div>
 
 <script>
-  // ====== 유틸 ======
-  // 모바일 디바이스 감지 함수
+  // ====== Card Selection ======
+  function selectCard(cardId) {
+    const cards = document.querySelectorAll('.tour-card');
+    cards.forEach(card => {
+      if (card.id === cardId) {
+        card.classList.toggle('selected');
+      }
+    });
+  }
+
+  // ====== Utils ======
   function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
-  // LINE URL: 모바일은 line:// 스킴, PC는 https://
   function getLineURL() {
     if (isMobile()) {
       return 'line://ti/p/@duprs.th';
@@ -565,7 +861,7 @@
   }
 
   const LINE_URL = getLineURL();
-  console.log('📱 디바이스:', isMobile() ? '모바일' : 'PC', '| LINE URL:', LINE_URL);
+  console.log('Device:', isMobile() ? 'Mobile' : 'PC', '| LINE URL:', LINE_URL);
 
   function genEventId() {
     return 'cid-' + Date.now() + '-' + Math.random().toString(36).slice(2,10);
@@ -585,7 +881,7 @@
     if (!getCookie('_fbp')) {
       const newFbp = `fb.1.${Date.now()}.${Math.random().toString(36).slice(2,10)}`;
       setCookie('_fbp', newFbp);
-      console.log('🧁 _fbp 쿠키 생성:', newFbp);
+      console.log('_fbp cookie created:', newFbp);
     }
   }
 
@@ -595,7 +891,7 @@
     if (fbclid) {
       const newFbc = `fb.1.${Date.now()}.${fbclid}`;
       setCookie('_fbc', newFbc, 90);
-      console.log('🧁 _fbc 쿠키 생성 (fbclid 기반):', newFbc);
+      console.log('_fbc cookie created (from fbclid):', newFbc);
     }
   }
 
@@ -604,11 +900,9 @@
   }
 
   function checkPixelStatus() {
-    console.log('🔍 픽셀 상태 확인:');
-    console.log('  - fbq 함수 존재:', typeof window.fbq === 'function');
-    console.log('  - fbq 객체 존재:', !!window.fbq);
+    console.log('Pixel status check:');
+    console.log('  - fbq function exists:', typeof window.fbq === 'function');
     if (window.fbq) {
-      console.log('  - fbq.queue 존재:', !!window.fbq.queue);
       console.log('  - fbq.loaded:', window.fbq.loaded);
       console.log('  - fbq.version:', window.fbq.version);
     }
@@ -617,10 +911,15 @@
   ensureFbcFromQuery();
   ensureFbpCookie();
 
-  // ====== 서버 CAPI 전송 ======
+  // ====== Server CAPI ======
   async function sendLeadToServer(eventId) {
     try {
-      console.log('📨 sendLeadToServer() 시작, eventId:', eventId);
+      console.log('sendLeadToServer() started, eventId:', eventId);
+
+      const selectedPackages = [];
+      document.querySelectorAll('.tour-card.selected').forEach(card => {
+        selectedPackages.push(card.querySelector('.card-title').textContent);
+      });
 
       const payload = {
         eventId,
@@ -629,11 +928,11 @@
         phone: '',
         fbp: getCookie('_fbp') || '',
         fbc: getFbc(),
-        userAgent: navigator.userAgent
+        userAgent: navigator.userAgent,
+        selectedPackages: selectedPackages
       };
 
-      console.log('📋 전송할 payload:', payload);
-      console.log('🌐 /api/lead 요청 시작...');
+      console.log('Payload:', payload);
 
       const response = await fetch('/api/lead', {
         method: 'POST',
@@ -642,58 +941,57 @@
         keepalive: true
       });
 
-      console.log('📡 서버 응답 상태:', response.status);
+      console.log('Server response status:', response.status);
       const result = await response.json();
-      console.log('📄 서버 응답 내용:', result);
-      console.log('🔍 상세 Meta 응답:', result.meta);
+      console.log('Server response:', result);
 
       if (response.ok) {
-        console.log('✅ CAPI 전송 성공!');
+        console.log('CAPI send success!');
       } else {
-        console.log('❌ CAPI 전송 실패:', result);
+        console.log('CAPI send failed:', result);
       }
     } catch(e) {
-      console.error('🚨 CAPI 전송 에러:', e);
+      console.error('CAPI send error:', e);
     }
   }
 
-  // ====== 리드 전송 훅 ======
+  // ====== Lead Tracking ======
   function trackLeadWithDedup() {
-    console.log('🚀 trackLeadWithDedup() 호출됨');
+    console.log('trackLeadWithDedup() called');
     const eventId = genEventId();
-    console.log('📋 생성된 eventId:', eventId);
+    console.log('Generated eventId:', eventId);
 
     if (typeof window.fbq === 'function') {
-      console.log('✅ fbq 함수 존재 - 브라우저 픽셀 전송');
+      console.log('fbq function exists - sending browser pixel');
       fbq('trackCustom', 'LineFriendAdd', {}, { eventID: eventId });
-      console.log('📊 Facebook Pixel LineFriendAdd(trackCustom) 이벤트 전송 완료');
+      console.log('Facebook Pixel LineFriendAdd event sent');
     } else {
-      console.log('❌ fbq 함수 없음 - 픽셀 로드 실패');
+      console.log('fbq function not found');
       if (window.fbq && window.fbq.queue) {
         window.fbq.queue.push(['track', 'LineFriendAdd', {}, { eventID: eventId }]);
-        console.log('📋 이벤트 큐에 LineFriendAdd 이벤트 추가됨');
+        console.log('Event queued');
       }
     }
 
-    console.log('🌐 서버 CAPI 전송 시작');
+    console.log('Starting server CAPI send');
     sendLeadToServer(eventId);
 
     return eventId;
   }
 
-  // DOM 로드 완료 후 이벤트 리스너 등록
+  // DOM ready event listeners
   function initEventListeners() {
-    console.log('🔧 이벤트 리스너 초기화 시작');
+    console.log('Initializing event listeners');
     checkPixelStatus();
 
     const lineBtn = document.getElementById('lineButton');
     if (lineBtn) {
       lineBtn.href = LINE_URL;
-      console.log('✅ 라인 버튼 찾음 - 이벤트 리스너 등록');
+      console.log('Line button found - event listener registered');
 
       lineBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        console.log('🎯 라인 버튼 클릭됨');
+        console.log('Line button clicked');
 
         const eventId = trackLeadWithDedup();
 
@@ -702,7 +1000,7 @@
         }, 1200);
       });
     } else {
-      console.log('❌ 라인 버튼을 찾을 수 없음');
+      console.log('Line button not found');
     }
   }
 
