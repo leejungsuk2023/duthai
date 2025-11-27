@@ -916,11 +916,6 @@
     try {
       console.log('sendLeadToServer() started, eventId:', eventId);
 
-      const selectedPackages = [];
-      document.querySelectorAll('.tour-card.selected').forEach(card => {
-        selectedPackages.push(card.querySelector('.card-title').textContent);
-      });
-
       const payload = {
         eventId,
         eventSourceUrl: location.href,
@@ -928,8 +923,7 @@
         phone: '',
         fbp: getCookie('_fbp') || '',
         fbc: getFbc(),
-        userAgent: navigator.userAgent,
-        selectedPackages: selectedPackages
+        userAgent: navigator.userAgent
       };
 
       console.log('Payload:', payload);
